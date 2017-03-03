@@ -1,0 +1,57 @@
+
+    <p class="light-text" >{{frmCtr.instruction}}</p>
+      <form>
+
+        <p ng-hide="frmCtr.email.warningHide" class="redLoginAlert">{{frmCtr.email.warning}}</p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon {{frmCtr.email.alertClass}}" id="sizing-addon2">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </span>
+          <input type="email" class="form-control" placeholder={{frmCtr.email.placeholder}} aria-describedby="sizing-addon2" name="email" ng-model="frmCtr.emailModel" ng-blur="frmCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?frmCtr.lgValidation($event, this):0;" required>
+        </div>
+
+
+        <p ng-hide="frmCtr.confirmPass.warningHide" class="redLoginAlert">{{frmCtr.password.warning}}</p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon {{frmCtr.confirmPass.alertClass}}" id="sizing-addon2">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          </span>
+          <input type="password" class="form-control" placeholder={{frmCtr.password.placeholder}} aria-describedby="sizing-addon2" name="password" ng-model="frmCtr.passwordModel" required>
+        </div>
+
+        <p ng-hide="frmCtr.confirmPass.warningHide" class="redLoginAlert">{{frmCtr.confirmPass.warning}}</p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon {{frmCtr.confirmPass.alertClass}}" id="sizing-addon2">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </span>
+          <input type="password" class="form-control" placeholder={{frmCtr.confirmPass.placeholder}} aria-describedby="sizing-addon2" name="confirmPass" ng-model="frmCtr.confPasswordModel" ng-blur="frmCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?frmCtr.lgValidation($event, this):0;" required>
+        </div>
+
+        <p ng-hide="frmCtr.firstName.warningHide" class="redLoginAlert">{{frmCtr.firstName.warning}}</p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon {{frmCtr.firstName.alertClass}}" id="sizing-addon2">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </span>
+          <input type="text" class="form-control" placeholder={{frmCtr.firstName.placeholder}} aria-describedby="sizing-addon2" name="firstName" ng-model="frmCtr.firstNameModel" ng-blur="frmCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?frmCtr.lgValidation($event, this):0;" maxlength="50" required>
+        </div>
+
+        <p ng-hide="frmCtr.lastName.warningHide" class="redLoginAlert">{{frmCtr.lastName.warning}}</p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon {{frmCtr.lastName.alertClass}}" id="sizing-addon2">
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+          </span>
+          <input type="text" class="form-control" placeholder={{frmCtr.lastName.placeholder}} aria-describedby="sizing-addon2" name="lastName" ng-model="frmCtr.lastNameModel" ng-blur="frmCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?frmCtr.lgValidation($event, this):0;" maxlength="50" required>
+        </div>
+
+        <p ng-hide="frmCtr.dateBirth.warningHide" class="redLoginAlert">{{frmCtr.dateBirth.warning}}</p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon {{frmCtr.dateBirth.alertClass}}" id="sizing-addon2">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </span>
+          <input type="date" class="form-control" placeholder={{frmCtr.dateBirth.placeholder}} aria-describedby="sizing-addon2" name="dateBirth" ng-model="frmCtr.dateBirthModel" ng-blur="frmCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?frmCtr.lgValidation($event, this):0;"  required min="1966-01-01"  max="1998-01-01" value="1990-01-01" ng-focus="$event2=$event" ng-change="frmCtr.lgValidation($event2);">
+        </div>
+
+        <button type="reset" class="btn btn-default" ng-click="frmCtr.lgReset()">Clear All</button>
+        <button type="submit" class="btn btn-default" ng-disabled="frmCtr.subDisabled" ng-click="frmCtr.lgSubmit(persons)">Submit</button>
+
+      </form>

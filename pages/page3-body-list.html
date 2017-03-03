@@ -1,0 +1,30 @@
+          <div class="row mainColor-text row-margin-bottom" ng-init="settingsAfterMeLoad()" >
+            <div class="col-xs-2  avatar-name">
+              Image
+            </div>
+            <div class="col-xs-3 avatar-name">
+              Name
+            </div>
+            <div class="col-xs-5 avatar-name">
+              Birth
+            </div>
+            <div class="col-xs-2 avatar-name">
+              Remove
+            </div>
+          </div> 
+
+
+       <div class="row mainColor-text row-margin-bottom" ng-repeat="person in bodCtr.persons">
+            <div class="col-xs-2">
+              <img class="avatar-img" ng-src={{person.defualtAvatar}} />
+            </div>
+            <div class="col-xs-3 avatar-name light-text">
+              {{person.name + " " + person.lastName}}
+            </div>
+            <div class="col-xs-5 avatar-name light-text">
+              {{person.birth}}
+            </div>
+            <div class="col-xs-2 cursor-pointer">
+              <img class="avatar-img" src="images/avatars/remove.png" ng-click="bodCtr.removePerson(this)" />
+            </div>
+          </div> 

@@ -1,0 +1,32 @@
+          <div class="row mainColor-text" ng-init="scopUpdater()">
+            <div class="col-xs-2">
+              Name3
+            </div>
+            <div class="col-xs-2">
+              family
+            </div>
+            <div class="col-xs-3">
+              Birth
+            </div>
+            <div class="col-xs-5">
+              Email
+            </div>
+          </div> 
+
+          <div class="row light-text  text-left" ng-repeat="person in memCtr.persons">
+            <div class="col-xs-2">
+              {{person.name}}
+            </div>
+            <div class="col-xs-2">
+             {{person.lastName}}
+            </div>
+            <div class="col-xs-3">
+             {{person.birth}}
+            </div>
+            <div class="col-xs-5">
+             {{person.email}}
+            </div>
+          </div> 
+          <p>&nbsp;</p>
+          <button class="btn btn-default" ng-click="memCtr.gotoBodyList()">Body List</button>
+
