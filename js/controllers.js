@@ -19,7 +19,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
     vm.instruction = "Please fill out this form";
     
     vm.email = {
-        placeholder: "Yor Email user@example.com",
+        placeholder: "User: an Email like user@example.com",
         alertClass: "",
         warningHide:true,
         warning: "This is a wrong email address format Your Email user@example.com",
@@ -62,7 +62,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         placeholder: "1990-01-01",
         alertClass: "",
         warningHide:true,
-        warning: "Please select an acceptable rage for age",
+        warning: "Age must be 14 to 150 (2003 - 1867)",
         OK: false
     };
 
@@ -94,7 +94,9 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         if (!isValid) {
             elemObjectScope.warningHide = false;
             elemObjectScope.alertClass = "redLoginAlert";
-            elemObjectScope.warning = elem.validationMessage;           
+            if(elem.name !== 'dateBirth') {
+                elemObjectScope.warning = elem.validationMessage;
+            }           
         }
         else {
             elemObjectScope.warningHide = true;
@@ -114,7 +116,10 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
                         lastName: vm.lastNameModel,
                         defualtAvatar: "images/avatars/default.png",
                         email: vm.emailModel,
-                        birth: vm.dateBirthModel.toLocaleDateString()     
+                        //birth: vm.dateBirthModel.toLocaleDateString()     
+                        birth: vm.dateBirthModel.getFullYear() + "-" +
+                            vm.dateBirthModel.getMonth() + "-" +
+                            vm.dateBirthModel.getDay()     
                     };                          
                 }
             }
