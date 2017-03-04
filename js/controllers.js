@@ -220,38 +220,6 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 }])
 
 
-/*
- * Routing par 
- */
-.config(['$routeProvider',function($routeProvider) {
-
-    $routeProvider.when('/', {
-        templateUrl: 'pages/page1-form.html',
-        controller: 'formController',
-        controllerAs: 'frmCtr'
-
-    })
-
-    .when('/members', {
-        templateUrl: 'pages/page2-table.html',
-        controller: 'membersController',
-        controllerAs:'memCtr'
-    })
-
-
-    .when('/buddylist', {
-        templateUrl: 'pages/buddy-list.html',
-        controller: 'buddyController',
-        controllerAs:'budCtr'
-    })
-
-    .when('/bodylist', {
-        templateUrl: 'pages/page3-body-list.html',
-        controller: 'memberslist',
-        controllerAs: 'memlistCtr'
-    });
-    
-}])
 
 
 /*
