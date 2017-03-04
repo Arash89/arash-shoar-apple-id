@@ -1,0 +1,22 @@
+//         http://www.json-generator.com/
+
+
+[
+  {
+    'repeat(5, 10)': {
+      _id: '{{objectId()}}',
+      firstName: '{{firstName()}}',
+      lastName: '{{surname()}}',
+      status: '{{random("Available", "Busy", "Idle", "Offline")}}',
+      company: '{{random("Yahoo", "Gmail", "Hotmail", "microsoft")}}',
+      email: function (tags) {
+        // Email tag is deprecated, because now you can produce an email as simple as this:
+        return (this.firstName + '.' + this.lastName + '@' + this.company + tags.domainZone()).toLowerCase();
+      },
+      birthday: '{{moment(this.date(new Date(1980, 0, 1), new Date())).format("LLLL")}}',
+      bio: '{{lorem(1, "paragraphs")}}',
+      lastSignIn: '{{moment(this.date(new Date(2017, 0, 1), new Date())).format("LLLL")}}'
+      
+    }
+  }
+]

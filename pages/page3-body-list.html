@@ -14,7 +14,7 @@
           </div> 
 
 
-       <div class="row mainColor-text row-margin-bottom" ng-repeat="person in bodCtr.persons">
+       <div class="row mainColor-text row-margin-bottom" ng-repeat="person in memlistCtr.persons">
             <div class="col-xs-2">
               <img class="avatar-img" ng-src={{person.defualtAvatar}} />
             </div>
@@ -25,6 +25,6 @@
               {{person.birth}}
             </div>
             <div class="col-xs-2 cursor-pointer">
-              <img class="avatar-img" src="images/avatars/remove.png" ng-click="bodCtr.removePerson(this)" />
+              <img class="avatar-img" src="images/avatars/remove.png" ng-click="memlistCtr.removePerson(this)" />
             </div>
           </div> 

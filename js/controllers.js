@@ -192,7 +192,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 /* Second controller that has responsibility for showing the list of people that
  * signed in and you can delete them
  */
-.controller('bodyController', ['myService', '$location', '$scope', function(myService, $location, $scope){
+.controller('memberslist', ['myService', '$location', '$scope', function(myService, $location, $scope){
 
     var vm = this;
 
@@ -238,10 +238,17 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         controllerAs:'memCtr'
     })
 
+
+    .when('/buddylist', {
+        templateUrl: 'pages/buddy-list.html',
+        controller: 'buddyController',
+        controllerAs:'budCtr'
+    })
+
     .when('/bodylist', {
         templateUrl: 'pages/page3-body-list.html',
-        controller: 'bodyController',
-        controllerAs: 'bodCtr'
+        controller: 'memberslist',
+        controllerAs: 'memlistCtr'
     });
     
 }])
