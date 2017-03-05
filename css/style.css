@@ -215,3 +215,7 @@ body {
     height: 40px;
   }
 }
+
+.modal-dialog * {
+  color: #333;
+}
