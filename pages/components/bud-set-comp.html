@@ -1,39 +1,98 @@
-<div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon2">
-    <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
-  </span>
-  <input type="text" class="form-control" placeholder="Filter by Family" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.lastName" />
+<div class='row'>
+
+  <div class="col-xs-12 col-sm-4">  
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon" id="sizing-addon2">
+          <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Filter by Family" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.lastName" />
+      </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4">  
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon2">
+        <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
+      </span>
+      <input type="text" class="form-control" placeholder="Filter by Name" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.firstName" />
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4">  
+   <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon2">
+        <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
+      </span>
+      <input type="text" class="form-control" placeholder="Filter by ID" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel._id" />
+    </div>
+  </div>
+
 </div>
 
 
-<div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon2">
-    <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
-  </span>
-  <input type="text" class="form-control" placeholder="Filter by Name" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.firstName" />
-</div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-3 text-left">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-click="budCtr.setStatusForFilter($event, 'Available')" checked="true">Available
+        </label>
+      </div>
+    </div>
 
 
-<div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon2">
-    <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
-  </span>
-  <input type="text" class="form-control" placeholder="Filter by ID" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.id" />
-</div>
+
+    <div class="col-xs-6 col-sm-3 text-left">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-click="budCtr.setStatusForFilter($event, 'Idle')" checked="true">Idle
+        </label>
+      </div>
+    </div>
 
 
-<div class="container">
+
+    <div class="col-xs-6 col-sm-3 text-left">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-click="budCtr.setStatusForFilter($event, 'Busy')" checked="true">Busy
+        </label>
+      </div>
+    </div>
+
+
+    <div class="col-xs-6 col-sm-3 text-left">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-click="budCtr.setStatusForFilter($event, 'Offline')" checked="true">Offline
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
 
 <div class="row">
 
-  <div class="col-xs-12 col-sm-2 ">
+  <div class="col-xs-4 col-xs-offset-4 ">
     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add Buddy</button>
   </div>
 
-  <buddy-modal></buddy-modal>
-
 </div>
   
+
+
+<div class="row">
+
+
+  <div class="col-xs-12">
+  <buddy-modal></buddy-modal>
+  </div>
 </div>
+  
+
 
 

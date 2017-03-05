@@ -1,6 +1,20 @@
-<h1 ng-click="budCtr.testFunction()">Buddy List</h1>
 
-<p>{{budCtr.firstNameModal}}</p>
+	<div class="row bud-com text-left" ng-show="budCtr.filterByStatus(person.status)">
+		<div class="col-xs-3">
+			{{person.status}}
+		</div>
+		<div class="col-xs-3">
+			{{person.lastName}}
+		</div>		
+		<div class="col-xs-3">
+			{{person.firstName}}
+		</div>		
+		<div class="col-xs-3">
+			{{person._id.substr(person._id.length - 5, 10)}}
+		</div>	
+	</div>
+
+
 
 
 

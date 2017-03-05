@@ -1,4 +1,4 @@
 
 <buddy-settings></buddy-settings>
 
-<buddy-list></buddy-list>
+<buddy-list ng-repeat="person in budCtr.persons | filter:budCtr.searchModel | orderBy:['lastName', 'firstName']"></buddy-list>
