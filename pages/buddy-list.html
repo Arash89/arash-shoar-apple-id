@@ -1,4 +1,20 @@
 
 <buddy-settings></buddy-settings>
 
+
+<div class="row bud-com text-left">
+	<div class="col-xs-5 col-sm-5">
+		Status
+	</div>
+	<div class="col-xs-3 col-sm-3">
+		Last Name
+	</div>		
+	<div class="col-xs-2 col-sm-3">
+		Name
+	</div>		
+	<div class="col-xs-2 col-sm-1">
+		User
+	</div>	
+</div>
+
 <buddy-list ng-repeat="person in budCtr.persons | filter:budCtr.searchModel | orderBy:['lastName', 'firstName']"></buddy-list>

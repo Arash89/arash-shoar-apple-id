@@ -55,7 +55,23 @@ console.log('elem', elem.checked);
 		return vm.statusForFilter.includes(status);
 	};
 
+
+	vm.classStatusColor = [{Available: 'class-available'}, {Idle: 'class-idle'}, {Busy: 'class-busy'}, {Offline: 'class-offline'}];
+
+	vm.colorByStatus = function(status) {
+		var theIndex = vm.classStatusColor.findIndex(function(item, ind, arr) {return item[status];});
+		return vm.classStatusColor[theIndex][status];
+	};
+
 	
+	vm.budDate = function(theDate, status) {
+		if (status !== 'Offline') {
+			return;
+		}
+		var niceDate = new Date(theDate);
+		return niceDate.toLocaleDateString();
+	};
+
 }]);
 
 

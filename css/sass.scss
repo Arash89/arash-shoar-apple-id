@@ -243,3 +243,31 @@ body {
     border-bottom: solid 1px $mainColor;
 }
 
+@media only screen and (max-width: 620px) {
+	.row.bud-com {
+	    font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 430px) {
+	.row.bud-com {
+	    font-size: 10px;
+	}
+}
+
+.class-available {
+	color: #00ff00;
+}
+
+.class-busy {
+	color: red;
+}
+
+.class-idle {
+	color: yellow;
+}
+
+.class-offline {
+	color: gray;
+}
+
