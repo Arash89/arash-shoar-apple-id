@@ -73,7 +73,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6">
    Order First Periority 
-   <select ng-model="budCtr.firstOrder" class="form-control" ng-click="budCtr.periotity()">
+   <select ng-model="budCtr.firstOrder" class="form-control" ng-change="budCtr.periotity()">
       <option value="lastName">Last Name</option>
       <option value="firstName">First Name</option>
       <option value="birthday">Birthday</option>
@@ -81,7 +81,7 @@
   </div>
   <div class="col-xs-12 col-sm-6">
     Order Second Periority
-    <select ng-model="budCtr.secondOrder" class="form-control" ng-click="budCtr.periotity()">
+    <select ng-model="budCtr.secondOrder" class="form-control" ng-change="budCtr.periotity()">
        <option value="lastName">Last Name</option>
        <option value="firstName">First Name</option>
        <option value="birthday">Birthday</option>

@@ -8,31 +8,32 @@ angular.module('arashTcsApp')
 
 
 	vm = this;
-	// vm.searchModel.status = "Busy";
+
+	// An Array to keep flags for status of Rows are shown or not shown
 	vm.showHide = [];
+
+	// Fetching the list of buddies from the database or webservice
 	$http.get('data/buddy.js')
 	.then(function(response) {
 		vm.persons = response.data;
-		// var i = 0;
-		// for (i = 0; i < response.data.length; i++) {
-		// 	vm.showHide.push(false);
-		// }
-
 	}, function(reason) {
 
 	});
 
+	/* 
+	 * This array if has all its four element all users are shoen
+	 * Othewist each elemet is pop out aren't shown in the list 
+	 */
 	vm.statusForFilter = ['Busy', 'Idle', 'Available', 'Offline'];
-	//vm.statusForFilter = [];
 
+	/* 
+	 * This is the function that works with the above Array to show
+	 * some of the members base on thier status and check box tha user
+	 * has selected
+	 */
 	vm.setStatusForFilter = function(event, value) {
 
-
-
-
         var elem = event.target;
-
-console.log('elem', elem.checked);
 
         if (elem.checked) {
 
@@ -56,20 +57,27 @@ console.log('elem', elem.checked);
         }
 	};
 
-
+	// Whit this function we set ng-show of th Row if it would be shown or not
 	vm.filterByStatus = function(status) {
 		return vm.statusForFilter.includes(status);
 	};
 
-
+	/*
+	 * This is an Array that keeps the class name for the Apple icon that
+	 * shows the buddies status with its color
+	 */
 	vm.classStatusColor = [{Available: 'class-available'}, {Idle: 'class-idle'}, {Busy: 'class-busy'}, {Offline: 'class-offline'}];
 
+	// This function sets the class of apple icon it wroks wiht above Array 
 	vm.colorByStatus = function(status) {
 		var theIndex = vm.classStatusColor.findIndex(function(item, ind, arr) {return item[status];});
 		return vm.classStatusColor[theIndex][status];
 	};
 
-	
+	/*
+	 * This function change the date to a short version 
+	 * For the users with the offline status
+	 */
 	vm.budDate = function(theDate, status) {
 		if (status !== 'Offline') {
 			return;
@@ -78,13 +86,18 @@ console.log('elem', elem.checked);
 		return niceDate.toLocaleDateString();
 	};
 
-
+	/*
+     * This function change the date to a short version 
+	 * For the birthay
+	 */
 	vm.budBirthDate = function(theDate) {
 		var niceDate = new Date(theDate);
 		return niceDate.toISOString().substr(0, 10);
 	};
 
-	
+	/*
+     * This function control visibility of the expanded data 
+	 */	
 	vm.showHideExpand = function(ind) {
 
 		if (vm.persons[ind].expandVisibi === undefined) {
@@ -96,6 +109,9 @@ console.log('elem', elem.checked);
 	};
 
 
+	/*
+     * This function remove a buddy from the list
+	 */	
 	vm.removeItem = function(event, self) {
 
 		event.stopPropagation();
@@ -112,7 +128,9 @@ console.log('elem', elem.checked);
 		}
 	};
 
-
+	/*
+     * This function add a buddy to the buddy list
+	 */	
 	vm.enterNewMem = function(event, self) {
 		vm.bufObj.status =  "Offline";
 		vm.bufObj.lastSignIn = "3/1/2017";
@@ -123,7 +141,10 @@ console.log('elem', elem.checked);
 
 	};
 
-
+	/*
+     * This function clears the modal dialog box for using again and add 
+     * new buddies to the list 
+	 */	
 	vm.resetTheModel = function() {
 
 		if (vm.bufObj !== undefined) {
@@ -159,12 +180,12 @@ console.log('elem', elem.checked);
 		vm.orderArray[1] = vm.secondOrder; 
 	};
 
-
 }]);
 
 
-
-
+/*
+ * This function cunstructor is used for adding new members to the list
+ */	
 function objForPushCunst(fname, lname, em, sign, bi, stat, bir, id) {
 	this.firstName = fname;
 	this.lastName = lname;
