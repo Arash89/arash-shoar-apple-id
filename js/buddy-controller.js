@@ -91,6 +91,23 @@ console.log('elem', elem.checked);
 	};
 
 
+	vm.removeItem = function(event, self) {
+
+		event.stopPropagation();
+
+		var id = self.person._id;
+
+		var theIndex = vm.persons.findIndex(function(elem, i, a) {return elem._id === id;});
+
+		var isOk = window.confirm('Are you OK with deleteing the ' + vm.persons[theIndex].firstName + " " + vm.persons[theIndex].lastName + "'s information?" );
+
+
+		if (isOk) {
+			vm.persons.splice(theIndex, 1);
+		}
+	};
+
+
 }]);
 
 

@@ -1,4 +1,4 @@
-<div class="row bud-com-expand" ng-click="budCtr.showHideExpand($index)">
+<div class="row bud-com-expand" ng-click="budCtr.showHideExpand($index)" ng-init="myIndex=$index">
 <div class="row bud-com text-left" ng-show="budCtr.filterByStatus(person.status)">
 
 	<div class="col-xs-5 col-sm-5">
@@ -13,6 +13,7 @@
 	</div>		
 	<div class="col-xs-2 col-sm-1">
 		{{person._id.substr(person._id.length - 5, 10)}}
+		<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="budCtr.removeItem($event, this)"></span>
 	</div>
 
 </div>
