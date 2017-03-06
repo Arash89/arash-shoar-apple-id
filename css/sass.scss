@@ -236,23 +236,41 @@ body {
 	color: #333;
 }
 
+.control-bud {
+    height: 30px;
+    font-size: 16px;	
+}
 
 .row.bud-com {
     height: 30px;
     font-size: 16px;
+    // border-bottom: solid 1px $mainColor;
+}
+
+.row.bud-com-expand {	
     border-bottom: solid 1px $mainColor;
+    cursor: pointer;
+}
+
+.bud-com--title {
+	@extend .row.bud-com;
+    border-bottom: solid 1px $mainColor;	
 }
 
 @media only screen and (max-width: 620px) {
+
 	.row.bud-com {
 	    font-size: 12px;
 	}
+
 }
 
 @media only screen and (max-width: 430px) {
+
 	.row.bud-com {
 	    font-size: 10px;
 	}
+
 }
 
 .class-available {

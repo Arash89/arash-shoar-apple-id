@@ -220,20 +220,33 @@ body {
   color: #333;
 }
 
-.row.bud-com {
+.control-bud {
   height: 30px;
   font-size: 16px;
+}
+
+.row.bud-com, .bud-com--title {
+  height: 30px;
+  font-size: 16px;
+}
+
+.row.bud-com-expand {
+  border-bottom: solid 1px #f07623;
+  cursor: pointer;
+}
+
+.bud-com--title {
   border-bottom: solid 1px #f07623;
 }
 
 @media only screen and (max-width: 620px) {
-  .row.bud-com {
+  .row.bud-com, .bud-com--title {
     font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 430px) {
-  .row.bud-com {
+  .row.bud-com, .bud-com--title {
     font-size: 10px;
   }
 }

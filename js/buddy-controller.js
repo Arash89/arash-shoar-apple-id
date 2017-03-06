@@ -9,9 +9,15 @@ angular.module('arashTcsApp')
 
 	vm = this;
 	// vm.searchModel.status = "Busy";
+	vm.showHide = [];
 	$http.get('data/buddy.js')
 	.then(function(response) {
 		vm.persons = response.data;
+		// var i = 0;
+		// for (i = 0; i < response.data.length; i++) {
+		// 	vm.showHide.push(false);
+		// }
+
 	}, function(reason) {
 
 	});
@@ -71,6 +77,19 @@ console.log('elem', elem.checked);
 		var niceDate = new Date(theDate);
 		return niceDate.toLocaleDateString();
 	};
+
+
+	
+	vm.showHideExpand = function(ind) {
+
+		if (vm.persons[ind].expandVisibi === undefined) {
+			vm.persons[ind].expandVisibi = false;
+		}
+
+		vm.persons[ind].expandVisibil = !vm.persons[ind].expandVisibil;
+
+	};
+
 
 }]);
 
