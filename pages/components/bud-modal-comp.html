@@ -11,10 +11,60 @@
         <div class="modal-body">
           <p>Some text in the modal.</p>
           <!-- Input for new buddies -->
-          <input type="text" name="" ng-model="budCtr.firstNameModal">
+
+          <!-- Name -->
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon {{budCtr.firstName.alertClass}}" id="sizing-addon2">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="First Name" aria-describedby="sizing-addon2" name="firstName" ng-model="budCtr.bufObj.firstName"   maxlength="50">
+          </div>
+
+
+          <!-- Family -->
+          <p ng-hide="budCtr.lastName.warningHide" class="redLoginAlert">{{budCtr.lastName.warning}}</p>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon {{budCtr.lastName.alertClass}}" id="sizing-addon2">
+              <i class="fa fa-user-plus" aria-hidden="true"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Last Name" aria-describedby="sizing-addon2" name="lastName" ng-model="budCtr.bufObj.lastName"  maxlength="50">
+          </div>
+
+
+          <!-- Email -->
+          <p ng-hide="budCtr.email.warningHide" class="redLoginAlert">{{budCtr.email.warning}}</p>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon {{budCtr.email.alertClass}}" id="sizing-addon2">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </span>
+            <input type="email" class="form-control" placeholder="Email Address" aria-describedby="sizing-addon2" name="email" ng-model="budCtr.bufObj.email" required maxlength="56">
+          </div>
+
+
+          <!-- Birthday -->
+          <p ng-hide="budCtr.dateBirth.warningHide" class="redLoginAlert">{{budCtr.dateBirth.warning}}</p>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon {{budCtr.dateBirth.alertClass}}" id="sizing-addon2">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </span>
+            <input type="date" class="form-control" placeholder="Date of Birth" aria-describedby="sizing-addon2" name="dateBirth" ng-model="budCtr.bufObj.birthday" value="1990-01-01"  >
+          </div>
+
+
+          <!-- Bio -->
+          <p ng-hide="budCtr.lastName.warningHide" class="redLoginAlert">{{budCtr.lastName.warning}}</p>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon {{budCtr.lastName.alertClass}}" id="sizing-addon2">
+              <i class="fa fa-user-plus" aria-hidden="true"></i>
+            </span>
+            <textarea  class="form-control" placeholder="Bio" aria-describedby="sizing-addon2" name="lastName"  ng-model="budCtr.bufObj.bio" ></textarea>
+          </div>
+
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-close">Close</button>
+          <button type="button" class="btn btn-default" ng-click="budCtr.enterNewMem($event, this)" data-dismiss="modal">Add</button>
         </div>
       </div>    
     </div>

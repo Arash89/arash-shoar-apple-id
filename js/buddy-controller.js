@@ -79,6 +79,11 @@ console.log('elem', elem.checked);
 	};
 
 
+	vm.budBirthDate = function(theDate) {
+		var niceDate = new Date(theDate);
+		return niceDate.toISOString().substr(0, 10);
+	};
+
 	
 	vm.showHideExpand = function(ind) {
 
@@ -108,11 +113,68 @@ console.log('elem', elem.checked);
 	};
 
 
+	vm.enterNewMem = function(event, self) {
+		vm.bufObj.status =  "Offline";
+		vm.bufObj.lastSignIn = "3/1/2017";
+		vm.bufObj._id = vm.persons.length + 1;
+		vm.bufObj._id = "0000000000000000abcd" + vm.bufObj._id;
+		var objForPush = new objForPushCunst(vm.bufObj.firstName, vm.bufObj.lastName, vm.bufObj.email, vm.bufObj.lastSignIn, vm.bufObj.bio, vm.bufObj.status, vm.bufObj.birthday, vm.bufObj._id);
+		vm.persons.push(objForPush);
+
+	};
+
+
+	vm.resetTheModel = function() {
+
+		if (vm.bufObj !== undefined) {
+
+			if (vm.bufObj.firstName !== undefined) {
+					vm.bufObj.firstName = "";
+				}
+		
+				if (vm.bufObj.lastName !== undefined) {
+					vm.bufObj.lastName = "";
+				}
+		
+				if (vm.bufObj.email !== undefined) {
+					vm.bufObj.email = "";
+				}
+
+				if (vm.bufObj.birthday !== undefined) {
+					vm.bufObj.birthday = "";
+				}
+		
+				if (vm.bufObj.bio !== undefined) {
+					vm.bufObj.bio = "";
+				}
+		}
+	};
+
+	vm.firstOrder = "lastName";
+	vm.secondOrder = "firstName";
+	vm.orderArray = ["lastName", "firstName"];
+
+	vm.periotity = function () {
+		vm.orderArray[0] = vm.firstOrder;
+		vm.orderArray[1] = vm.secondOrder; 
+	};
+
+
 }]);
 
 
 
 
+function objForPushCunst(fname, lname, em, sign, bi, stat, bir, id) {
+	this.firstName = fname;
+	this.lastName = lname;
+	this.email = em;
+	this.lastSignIn = sign;
+	this.bio = bi;
+	this.status = stat;
+	this.birthday = bir;
+	this._id = id;
+}
 
 
 })(window.angular);	
