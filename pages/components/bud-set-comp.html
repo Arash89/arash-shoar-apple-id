@@ -5,7 +5,7 @@
         <span class="input-group-addon" id="sizing-addon2">
           <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Filter by Family" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.lastName" />
+        <input type="text" class="form-control" placeholder="Filter by Last Name" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.lastName" />
       </div>
   </div>
 
@@ -14,7 +14,7 @@
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
       </span>
-      <input type="text" class="form-control" placeholder="Filter by Name" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.firstName" />
+      <input type="text" class="form-control" placeholder="Filter by First Name" aria-describedby="sizing-addon2" ng-model="budCtr.searchModel.firstName" />
     </div>
   </div>
 
@@ -72,18 +72,20 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-6">
-   Order First Periority 
-   <select ng-model="budCtr.firstOrder" class="form-control" ng-change="budCtr.periotity()">
+   Order First Priority 
+   <select ng-model="budCtr.firstOrder" class="form-control" ng-change="budCtr.priotity()">
       <option value="lastName">Last Name</option>
       <option value="firstName">First Name</option>
+      <option value="favorit">Favorites</option>
       <option value="birthday">Birthday</option>
     </select>   
   </div>
   <div class="col-xs-12 col-sm-6">
-    Order Second Periority
-    <select ng-model="budCtr.secondOrder" class="form-control" ng-change="budCtr.periotity()">
+    Order Second Priority
+    <select ng-model="budCtr.secondOrder" class="form-control" ng-change="budCtr.priotity()">
        <option value="lastName">Last Name</option>
        <option value="firstName">First Name</option>
+      <option value="favorit">Favorites</option>
        <option value="birthday">Birthday</option>
      </select>   
   </div>

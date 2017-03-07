@@ -6,6 +6,7 @@
 		{{person.status}} <span>{{budCtr.budDate(person.lastSignIn, person.status)}}</span>
 	</div>
 	<div class="col-xs-3 col-sm-3">
+	<span class="glyphicon glyphicon-star {{budCtr.isFavorit(person.favorit)}}" aria-hidden="true"  ng-click="budCtr.toggleFavorit($event, this)"></span>
 		{{person.lastName}}
 	</div>		
 	<div class="col-xs-2 col-sm-3">

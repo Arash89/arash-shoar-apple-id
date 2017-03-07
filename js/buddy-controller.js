@@ -175,10 +175,36 @@ angular.module('arashTcsApp')
 	vm.secondOrder = "firstName";
 	vm.orderArray = ["lastName", "firstName"];
 
-	vm.periotity = function () {
+	vm.priotity = function () {
 		vm.orderArray[0] = vm.firstOrder;
 		vm.orderArray[1] = vm.secondOrder; 
 	};
+
+	// This function changes the color of favorit star to yellow or gray
+	vm.isFavorit = function(favorit) {
+
+		if (favorit === "true") {
+			// yellow class name
+			return 'class-idle';
+		}
+		else {
+			// gray class name
+			return 'class-offline';
+		}
+	};
+
+	vm.toggleFavorit = function(event, self) {
+		event.stopPropagation();
+
+		if (self.person.favorit === "true")
+		{
+			self.person.favorit = "false";
+		} else {
+			self.person.favorit = "true";
+		} 
+	};
+		
+
 
 }]);
 
