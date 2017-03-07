@@ -183,7 +183,7 @@ angular.module('arashTcsApp')
 	// This function changes the color of favorit star to yellow or gray
 	vm.isFavorit = function(favorit) {
 
-		if (favorit === "true") {
+		if (favorit === "a") {
 			// yellow class name
 			return 'class-idle';
 		}
@@ -196,11 +196,11 @@ angular.module('arashTcsApp')
 	vm.toggleFavorit = function(event, self) {
 		event.stopPropagation();
 
-		if (self.person.favorit === "true")
+		if (self.person.favorit === "a")
 		{
-			self.person.favorit = "false";
+			self.person.favorit = "z";
 		} else {
-			self.person.favorit = "true";
+			self.person.favorit = "a";
 		} 
 	};
 		
