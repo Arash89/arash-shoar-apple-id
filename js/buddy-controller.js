@@ -281,34 +281,19 @@ angular.module('arashTcsApp')
 	    }
 
 	    for (i = 0; i < vm.enableArr.length; i++) {
-
-// console.log('i', i);
-// console.log('vm.enableArr[i]', vm.enableArr[i].warning);
-// console.log('vm.enableArr[i].OK', vm.enableArr[i].OK);
-
 	        if (vm.enableArr[i].OK === false) {             
 	            return;
 	        }
 	        else {
 	            if (i === vm.enableArr.length - 1) {
 	                vm.addBtDisabled = false;
-	                // newMemberData = {
-	                //     name: vm.firstNameModel,
-	                //     lastName: vm.lastNameModel,
-	                //     defualtAvatar: "images/avatars/default.png",
-	                //     email: vm.emailModel,
-	                //     //birth: vm.dateBirthModel.toLocaleDateString()     
-	                //     birth: vm.dateBirthModel.getFullYear() + "-" +
-	                //         vm.dateBirthModel.getMonth() + "-" +
-	                //         vm.dateBirthModel.getDay()     
-	                // };                          
 	            }
 	        }
 	    }
 	};
 
 
-	/////////////////////////////  Validation End////////////////////////////////
+	/////////////////////////////  Validation End  ////////////////////////////////
 
 }]);
 
