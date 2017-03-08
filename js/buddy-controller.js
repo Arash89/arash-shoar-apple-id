@@ -204,7 +204,111 @@ angular.module('arashTcsApp')
 		} 
 	};
 		
+	/////////////////////////////  Validation Start  ////////////////////////////
+	
+	vm.firstName = {
+	    placeholder: "First Name",
+	    alertClass: "",
+	    warningHide:true,
+	    warning: "The Name must be less than 50 characters",
+	    OK: false
+	};
+	
+	vm.lastName = {
+	    placeholder: "Last Name",
+	    alertClass: "",
+	    warningHide:true,
+	    warning: "The Last Name must be less than 50 characters",
+	    OK: false
+	};
 
+	vm.email = {
+	    placeholder: "User: an Email like user@example.com",
+	    alertClass: "",
+	    warningHide:true,
+	    warning: "This is a wrong email address format Your Email user@example.com",
+	    OK: false
+	};
+	
+	vm.dateBirth = {
+	    placeholder: "1990-01-01",
+	    alertClass: "",
+	    warningHide:true,
+	    warning: "Age must be 14 to 150 (2003 - 1867)",
+	    OK: false
+	};
+
+	vm.bio = {
+	    placeholder: "User: an Email like user@example.com",
+	    alertClass: "",
+	    warningHide:true,
+	    warning: "Biography is mandatory",
+	    OK: false
+	};	
+
+
+	vm.addBtDisabled = true;
+	
+	/* 
+	 *  The array that contains the 5 element's properties that we set for 
+	 *  application functionality 
+	 */
+	vm.enableArr = [vm.firstName, vm.lastName, vm.email, vm.dateBirth, vm.bio];
+
+	/* 
+	 *  Function that call for checking element validation for these events
+	 *  click and hitting enter for all elements
+	 *  change for the date element 
+	 */
+	vm.lgValidation = function (event, self) {
+
+	    var elem = event.target;
+	    var elemObjectScope = vm[elem.name];
+	    var isValid = elem.checkValidity();
+	    var i = 0;
+
+	    if (!isValid) {
+	        elemObjectScope.warningHide = false;
+	        elemObjectScope.alertClass = "redLoginAlert";
+	        if(elem.name !== 'dateBirth') {
+	            elemObjectScope.warning = elem.validationMessage;
+	        }           
+	    }
+	    else {
+	        elemObjectScope.warningHide = true;
+	        elemObjectScope.alertClass = "greenLoginAlert"; 
+	        elemObjectScope.OK = true;  
+	    }
+
+	    for (i = 0; i < vm.enableArr.length; i++) {
+
+// console.log('i', i);
+// console.log('vm.enableArr[i]', vm.enableArr[i].warning);
+// console.log('vm.enableArr[i].OK', vm.enableArr[i].OK);
+
+	        if (vm.enableArr[i].OK === false) {             
+	            return;
+	        }
+	        else {
+	            if (i === vm.enableArr.length - 1) {
+	                vm.addBtDisabled = false;
+	                // newMemberData = {
+	                //     name: vm.firstNameModel,
+	                //     lastName: vm.lastNameModel,
+	                //     defualtAvatar: "images/avatars/default.png",
+	                //     email: vm.emailModel,
+	                //     //birth: vm.dateBirthModel.toLocaleDateString()     
+	                //     birth: vm.dateBirthModel.getFullYear() + "-" +
+	                //         vm.dateBirthModel.getMonth() + "-" +
+	                //         vm.dateBirthModel.getDay()     
+	                // };                          
+	            }
+	        }
+	    }
+	};
+
+
+	/////////////////////////////  Validation End////////////////////////////////
 
 }]);
 
