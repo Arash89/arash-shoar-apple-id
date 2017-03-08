@@ -292,3 +292,42 @@ body {
 #modal-close {
   margin-bottom: 0px;
 }
+
+
+.expand-show {
+	// color: red;
+	// border-color: red;
+}
+
+
+.expand-show.ng-hide-add {
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  // color: rgba(255, 0, 0, 0);
+  // font-size: 48px;
+  // color: green;
+}
+
+.expand-show.ng-hide-remove {
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  // color: rgba(255, 0, 0, 0);
+  // font-size: 48px;
+  // text-align: center;
+}
+
+.expand-show.ng-hide {
+	// height: 0px;
+	// text-align: right;
+	font-size: 0px;
+	opacity: 0;
+    // color: rgba(255, 0, 0, 0);
+}
+
+
+
+
+
+
+
+

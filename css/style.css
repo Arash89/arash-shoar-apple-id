@@ -270,3 +270,18 @@ body {
 #modal-close {
   margin-bottom: 0px;
 }
+
+.expand-show.ng-hide-add {
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.expand-show.ng-hide-remove {
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.expand-show.ng-hide {
+  font-size: 0px;
+  opacity: 0;
+}
