@@ -2,17 +2,18 @@
 <div class="row bud-com text-left">
 
 	<div class="col-xs-5 col-sm-5">
+	  <span class="glyphicon glyphicon-star {{budCtr.isFavorit(person.favorit)}}" aria-hidden="true"  ng-click="budCtr.toggleFavorit($event, this)"></span>
+	  	 {{person.firstName}} {{person.lastName}}
+	</div>
+
+	<div class="col-xs-4 col-sm-5">
+
 		<i class="fa fa-apple {{budCtr.colorByStatus(person.status)}}" aria-hidden="true"></i>		
 		{{person.status}} <span>{{budCtr.budDate(person.lastSignIn, person.status)}}</span>
-	</div>
-	<div class="col-xs-3 col-sm-3">
-	<span class="glyphicon glyphicon-star {{budCtr.isFavorit(person.favorit)}}" aria-hidden="true"  ng-click="budCtr.toggleFavorit($event, this)"></span>
-		{{person.lastName}}
+
 	</div>		
-	<div class="col-xs-2 col-sm-3">
-		{{person.firstName}} 
-	</div>		
-	<div class="col-xs-2 col-sm-1">
+
+	<div class="col-xs-3 col-sm-2 text-right">
 		{{person._id.substr(person._id.length - 5, 10)}}
 		<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="budCtr.removeItem($event, this, $index)"></span>
 	</div>

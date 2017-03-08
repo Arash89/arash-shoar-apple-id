@@ -87,9 +87,11 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         var isValid = elem.checkValidity();
         var i = 0;
 
+
         if (elem.name === "confirmPass" && (vm.confPasswordModel !== vm.passwordModel) ) {
             isValid = false;
         }
+
 
         if (!isValid) {
             elemObjectScope.warningHide = false;
