@@ -45,7 +45,18 @@
   },
   {
     "_id": "58ba22a65c48af7d12dffa63",
-    "firstName": "Stafford",
+    "firstName": "Jasmine",
+    "lastName": "Bass",
+    "status": "Offline",
+    "favorit": "a",
+    "email": "stafford.bass@microsoft.biz",
+    "birthday": "Wednesday, April 13, 2016 3:32 PM",
+    "bio": "Culpa commodo qui deserunt occaecat aliquip ea reprehenderit mollit velit. Consectetur aliquip voluptate qui nulla. Officia ut incididunt ex proident incididunt laboris consequat mollit commodo mollit ex tempor velit Lorem. Nisi et cillum quis ea ipsum quis dolor proident et.",
+    "lastSignIn": "Friday, February 17, 2017 8:06 PM"
+  },
+   {
+    "_id": "58ba22a65c48af7d12dffa64",
+    "firstName": "Alfred",
     "lastName": "Bass",
     "status": "Offline",
     "favorit": "z",
@@ -54,6 +65,7 @@
     "bio": "Culpa commodo qui deserunt occaecat aliquip ea reprehenderit mollit velit. Consectetur aliquip voluptate qui nulla. Officia ut incididunt ex proident incididunt laboris consequat mollit commodo mollit ex tempor velit Lorem. Nisi et cillum quis ea ipsum quis dolor proident et.",
     "lastSignIn": "Friday, February 17, 2017 8:06 PM"
   },
+ 
   {
     "_id": "58ba22a63bb903c0b4b73252",
     "firstName": "Verna",
@@ -221,6 +233,17 @@
   },
   {
     "_id": "58ba22a6801d5808098ed907",
+    "firstName": "Steven",
+    "lastName": "Benjamin",
+    "status": "Idle",
+    "favorit": "a",
+    "email": "milagros.benjamin@microsoft.me",
+    "birthday": "Saturday, February 19, 2005 7:51 PM",
+    "bio": "Excepteur dolore dolore aliqua reprehenderit et consectetur excepteur elit. Qui cupidatat enim magna tempor sint tempor commodo. Amet irure veniam sunt irure adipisicing adipisicing tempor aliqua consequat enim amet est velit. Fugiat consectetur eiusmod do sit irure aliqua occaecat esse consectetur est dolor. Voluptate cupidatat deserunt pariatur labore occaecat laborum minim proident in voluptate nisi non. Sunt commodo veniam minim elit excepteur sit aliquip consectetur nulla cupidatat consectetur minim ex.",
+    "lastSignIn": "Wednesday, February 15, 2017 2:40 PM"
+  },
+  {
+    "_id": "58ba22a6801d5808098ed908",
     "firstName": "Milagros",
     "lastName": "Benjamin",
     "status": "Idle",
@@ -266,6 +289,28 @@
   {
     "_id": "58ba22a6e5ca31887f2e4b8c",
     "firstName": "Terry",
+    "lastName": "Alford",
+    "status": "Busy",
+    "favorit": "a",
+    "email": "terry.alford@gmail.info",
+    "birthday": "Friday, November 11, 2011 9:50 PM",
+    "bio": "Labore eiusmod Lorem Lorem laborum laborum eiusmod excepteur voluptate qui mollit. Deserunt aliquip sit reprehenderit ipsum in velit commodo laboris minim pariatur. Id consequat est mollit minim veniam Lorem dolor Lorem aute irure cillum tempor est.",
+    "lastSignIn": "Monday, February 6, 2017 8:15 PM"
+  },
+  {
+    "_id": "58ba22a6e5ca31887f2e4b8f",
+    "firstName": "Elizabeth",
+    "lastName": "Alford",
+    "status": "Busy",
+    "favorit": "b",
+    "email": "terry.alford@gmail.info",
+    "birthday": "Friday, November 11, 2011 9:50 PM",
+    "bio": "Labore eiusmod Lorem Lorem laborum laborum eiusmod excepteur voluptate qui mollit. Deserunt aliquip sit reprehenderit ipsum in velit commodo laboris minim pariatur. Id consequat est mollit minim veniam Lorem dolor Lorem aute irure cillum tempor est.",
+    "lastSignIn": "Monday, February 6, 2017 8:15 PM"
+  },
+  {
+    "_id": "58ba22a6e5ca31887f2e4b8d",
+    "firstName": "Samuel",
     "lastName": "Alford",
     "status": "Busy",
     "favorit": "a",
