@@ -24,5 +24,5 @@ gulp.task('webserver', function(){
 	}));
 });
 
-gulp.task('default', ['sass', 'watch', 'webserver']);
-// gulp.task('default', ['webserver']);
+//gulp.task('default', ['sass', 'watch', 'webserver']);
+ gulp.task('default', ['webserver']);
