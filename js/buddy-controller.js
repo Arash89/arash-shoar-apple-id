@@ -9,10 +9,10 @@ angular.module('arashTcsApp')
 
 	vm = this;
 
-	// An Array to keep flags for status of Rows are shown or not shown
+	//  An Array to keep flags for status of Rows are shown or not shown
 	vm.showHide = [];
 
-	// Fetching the list of buddies from the database or webservice
+	//  Fetching the list of buddies from the database or web-service
 	$http.get('data/buddy.js')
 	.then(function(response) {
 		vm.persons = response.data;
@@ -21,15 +21,15 @@ angular.module('arashTcsApp')
 	});
 
 	/* 
-	 * This array if has all its four element all users are shoen
-	 * Othewist each elemet is pop out aren't shown in the list 
+	 *  This array if has all its four element all users are shown
+	 *  Otherwise each element is pop out aren't shown in the list 
 	 */
 	vm.statusForFilter = ['Busy', 'Idle', 'Available', 'Offline'];
 
 	/* 
-	 * This is the function that works with the above Array to show
-	 * some of the members base on thier status and check box tha user
-	 * has selected
+	 *  This is the function that works with the above Array to show
+	 *  some of the members base on their status and check box that user
+	 *  has selected
 	 */
 	vm.setStatusForFilter = function(event, value) {
 
@@ -57,26 +57,26 @@ angular.module('arashTcsApp')
         }
 	};
 
-	// Whit this function we set ng-show of th Row if it would be shown or not
+	//  Whit this function we set ng-show of th Row if it would be shown or not
 	vm.filterByStatus = function(status) {
 		return vm.statusForFilter.includes(status);
 	};
 
 	/*
-	 * This is an Array that keeps the class name for the Apple icon that
-	 * shows the buddies status with its color
+	 *  This is an Array that keeps the class name for the Apple icon that
+	 *  shows the buddies status with its color
 	 */
 	vm.classStatusColor = [{Available: 'class-available'}, {Idle: 'class-idle'}, {Busy: 'class-busy'}, {Offline: 'class-offline'}];
 
-	// This function sets the class of apple icon it wroks wiht above Array 
+	//  This function sets the class of apple icon it wroks wiht above Array 
 	vm.colorByStatus = function(status) {
 		var theIndex = vm.classStatusColor.findIndex(function(item, ind, arr) {return item[status];});
 		return vm.classStatusColor[theIndex][status];
 	};
 
 	/*
-	 * This function change the date to a short version 
-	 * For the users with the offline status
+	 *  This function change the date to a short version 
+	 *  For the users with the off-line status
 	 */
 	vm.budDate = function(theDate, status) {
 		if (status !== 'Offline') {
@@ -87,8 +87,8 @@ angular.module('arashTcsApp')
 	};
 
 	/*
-     * This function change the date to a short version 
-	 * For the birthay
+     *  This function change the date to a short version 
+	 *  For the birthday
 	 */
 	vm.budBirthDate = function(theDate) {
 		var niceDate = new Date(theDate);
@@ -96,7 +96,7 @@ angular.module('arashTcsApp')
 	};
 
 	/*
-     * This function control visibility of the expanded data 
+     *  This function control visibility of the expanded data 
 	 */	
 	vm.showHideExpand = function(ind) {
 
@@ -110,9 +110,9 @@ angular.module('arashTcsApp')
 
 
 	/*
-     * This function remove a buddy from the list
+     *  This function remove a buddy from the list
 	 */	
-	vm.removeItem = function(event, self) {
+	vm.removeItem = function(event, self, ind) {
 
 		event.stopPropagation();
 
@@ -120,16 +120,17 @@ angular.module('arashTcsApp')
 
 		var theIndex = vm.persons.findIndex(function(elem, i, a) {return elem._id === id;});
 
-		var isOk = window.confirm('Are you OK with deleteing the ' + vm.persons[theIndex].firstName + " " + vm.persons[theIndex].lastName + "'s information?" );
+		var isOk = window.confirm('Are you OK with deleting the ' + vm.persons[theIndex].firstName + " " + vm.persons[theIndex].lastName + "'s information?" );
 
-
+		vm.persons[ind].expandVisibil = false;
+		
 		if (isOk) {
 			vm.persons.splice(theIndex, 1);
 		}
 	};
 
 	/*
-     * This function add a buddy to the buddy list
+     *  This function add a buddy to the buddy list
 	 */	
 	vm.enterNewMem = function(event, self) {
 		vm.bufObj.status =  "Offline";
@@ -142,8 +143,8 @@ angular.module('arashTcsApp')
 	};
 
 	/*
-     * This function clears the modal dialog box for using again and add 
-     * new buddies to the list 
+     *  This function clears the modal dialog box for using again and add 
+     *  new buddies to the list 
 	 */	
 	vm.resetTheModel = function() {
 
@@ -180,15 +181,15 @@ angular.module('arashTcsApp')
 		vm.orderArray[1] = vm.secondOrder; 
 	};
 
-	// This function changes the color of favorit star to yellow or gray
+	//  This function changes the color of favorite star to yellow or gray
 	vm.isFavorit = function(favorit) {
 
 		if (favorit === "a") {
-			// yellow class name
+			//  yellow class name
 			return 'class-idle';
 		}
 		else {
-			// gray class name
+			//  gray class name
 			return 'class-offline';
 		}
 	};
@@ -204,8 +205,11 @@ angular.module('arashTcsApp')
 		} 
 	};
 		
-	/////////////////////////////  Validation Start  ////////////////////////////
-	
+	/*            ///////////////////////////  Validation Start  ////////////////////////////
+	 *  From this point there are all variables and functions that will be used
+	 *  for testing the validity of Add button of buddy list dialog box
+	 *  to check if the user had filled out all necessary fields with the right format
+	 */
 	vm.firstName = {
 	    placeholder: "First Name",
 	    alertClass: "",
@@ -299,7 +303,7 @@ angular.module('arashTcsApp')
 
 
 /*
- * This function cunstructor is used for adding new members to the list
+ *  This function constructor is used for adding new members to the list
  */	
 function objForPushCunst(fname, lname, em, sign, bi, stat, bir, id) {
 	this.firstName = fname;

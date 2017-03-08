@@ -2,10 +2,10 @@
 
 angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 
-// first controller that works for form validity and submit 
+//  first controller that works for form validity and submit 
 .controller('formController', ['$scope', '$http', '$location', 'myService', function($scope, $http, $location, myService){
 
-    // Variables for the first controller 
+    //  Variables for the first controller 
     var newMemberData = {};
 
     var vm = this;
@@ -126,7 +126,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         }
     };
 
-    // Will be use when the user hits the reset button
+    //  Will be use when the user hits the reset button
     vm.lgReset = function () {
 
         for (i = 0; i < vm.enableArr.length; i++) {
@@ -137,7 +137,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 
     };
 
-    // for when user click on submit button
+    //  for when user click on submit button
     vm.lgSubmit = function (a) {
         $http.get('data/data.js').then(function(response) {
             vm.persons = response.data;
@@ -165,8 +165,8 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 }])
 
 
-/* Second controller that has responsibility for showing the list of people that
- * signed in 
+/*  Second controller that has responsibility for showing the list of people that
+ *  signed in 
  */
 .controller('membersController', ['myService', '$location', '$scope', function(myService, $location, $scope){
 
@@ -189,8 +189,8 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 }])
 
 
-/* Second controller that has responsibility for showing the list of people that
- * signed in and you can delete them
+/*  Second controller that has responsibility for showing the list of people that
+ *  signed in and you can delete them
  */
 .controller('memberslist', ['myService', '$location', '$scope', function(myService, $location, $scope){
 
@@ -223,8 +223,8 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 
 
 /*
- * This one is the service that I designed to keep connection between the three 
- * controllers  
+ *  This one is the service that I designed to keep connection between the three 
+ *  controllers  
  */
 .service('myService', function(){
 

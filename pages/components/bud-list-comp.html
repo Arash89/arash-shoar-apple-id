@@ -2,7 +2,7 @@
 <div class="row bud-com text-left">
 
 	<div class="col-xs-5 col-sm-5">
-		<span class="glyphicon glyphicon-apple  {{budCtr.colorByStatus(person.status)}}" aria-hidden="true"></span>		
+		<i class="fa fa-apple {{budCtr.colorByStatus(person.status)}}" aria-hidden="true"></i>		
 		{{person.status}} <span>{{budCtr.budDate(person.lastSignIn, person.status)}}</span>
 	</div>
 	<div class="col-xs-3 col-sm-3">
@@ -14,7 +14,7 @@
 	</div>		
 	<div class="col-xs-2 col-sm-1">
 		{{person._id.substr(person._id.length - 5, 10)}}
-		<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="budCtr.removeItem($event, this)"></span>
+		<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="budCtr.removeItem($event, this, $index)"></span>
 	</div>
 
 </div>
