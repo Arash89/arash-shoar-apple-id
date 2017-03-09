@@ -17,6 +17,10 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
     vm.lgPage = "pages/page1-form.html";
 
     vm.instruction = "Please fill out this form";
+
+    vm.confPasswordModel = "";
+
+    vm.passwordModel = "";    
     
     vm.email = {
         placeholder: "User: an Email like user@example.com",
@@ -73,7 +77,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
      *  The array that contains the 5 element's properties that we set for 
      *  application functionality 
      */
-    vm.enableArr = [vm.email, vm.confirmPass, vm.firstName, vm.lastName, vm.dateBirth];
+    vm.enableArr = [vm.email, vm.confirmPass, vm.firstName, vm.lastName, vm.dateBirth, vm.password];
 
     /* 
      *  Function that call for checking element validation for these events
@@ -84,9 +88,32 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 
         var elem = event.target;
         var elemObjectScope = vm[elem.name];
-        var isValid = elem.checkValidity();
         var i = 0;
 
+
+
+
+        if (elem.name === "confirmPass" ) {
+
+            var passwordModel = angular.element("#frmPass").eq(0).val();
+            var confPasswordModel = angular.element("#frmConf").get(0).value;
+
+            if (confPasswordModel !== passwordModel) {
+                isValid = false;
+                vm.confirmPass.warningHide = false;
+                vm.password.warningHide = false;
+                vm.password.warning = "Passwords are not matched"; 
+
+            }
+            else {
+                vm.confirmPass.warningHide = true;
+                vm.password.warningHide = true;
+                isValid = true;
+            }
+          
+        }
+
+        var isValid = elem.checkValidity();
 
         if (elem.name === "confirmPass" && (vm.confPasswordModel !== vm.passwordModel) ) {
             isValid = false;
@@ -94,6 +121,9 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 
 
         if (!isValid) {
+            
+            vm.subDisabled = true;
+            elemObjectScope.OK = false;
             elemObjectScope.warningHide = false;
             elemObjectScope.alertClass = "redLoginAlert";
             if(elem.name !== 'dateBirth') {
@@ -112,6 +142,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
             }
             else {
                 if (i === vm.enableArr.length - 1) {
+                    console.log("Didi?");
                     vm.subDisabled = false;
                     newMemberData = {
                         name: vm.firstNameModel,
