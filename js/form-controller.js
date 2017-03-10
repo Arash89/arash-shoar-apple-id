@@ -110,11 +110,15 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
             else {
                 vm.confirmPass.warningHide = true;
                 vm.password.warningHide = true;
-                vm.password.OK = true;
-                isValid = true;
+                
+                
                 if(passwordModel.length >= 6) {
+
+console.log('passwordModel', passwordModel);
                     vm.password.alertClass = "greenLoginAlert";
                     vm.confirmPass.alertClass = "greenLoginAlert";
+                    vm.password.OK = true;
+                    isValid = true;
                 }
             }
           
