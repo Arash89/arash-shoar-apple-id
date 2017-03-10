@@ -10,7 +10,7 @@ angular.module('arashTcsApp')
 
 .config(['$routeProvider',function($routeProvider) {
 
-    $routeProvider.when('/', {
+    $routeProvider.when('/signup', {
         templateUrl: 'pages/page1-form.html',
         controller: 'formController',
         controllerAs: 'frmCtr'
@@ -24,7 +24,7 @@ angular.module('arashTcsApp')
     })
 
 
-    .when('/buddylist', {
+    .when('/', {
         templateUrl: 'pages/buddy-list.html',
         controller: 'buddyController',
         controllerAs:'budCtr'

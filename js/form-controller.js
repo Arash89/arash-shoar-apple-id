@@ -90,11 +90,10 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         var elemObjectScope = vm[elem.name];
         var i = 0;
 
+        var isValid = elem.checkValidity();
 
-console.log('lgValidation');
-
-
-        if (elem.name === "confirmPass") {
+        // if the password and confirm password fields are not identical
+        if (elem.name === "confirmPass"  || elem.name === "password") {
 
             var passwordModel = angular.element("#frmPass").eq(0).val();
             var confPasswordModel = angular.element("#frmConf").get(0).value;
@@ -103,19 +102,25 @@ console.log('lgValidation');
                 isValid = false;
                 vm.confirmPass.warningHide = false;
                 vm.password.warningHide = false;
-                vm.password.warning = "Passwords are not matched"; 
-
+                vm.password.warning = "Passwords are not matched";
+                vm.confirmPass.warning = "Passwords are not matched";
+                vm.password.alertClass = "redLoginAlert";
+                vm.confirmPass.alertClass = "redLoginAlert";
             }
             else {
                 vm.confirmPass.warningHide = true;
                 vm.password.warningHide = true;
+                vm.password.OK = true;
                 isValid = true;
+                if(passwordModel.length >= 6) {
+                    vm.password.alertClass = "greenLoginAlert";
+                    vm.confirmPass.alertClass = "greenLoginAlert";
+                }
             }
           
         }
 
-        var isValid = elem.checkValidity();
-
+        // new new new
         if (elem.name === "dateBirth" && vm.dateBirthModel === undefined) {
             isValid = false;
         }
@@ -138,7 +143,7 @@ console.log('lgValidation');
         }
 
         for (i = 0; i < vm.enableArr.length; i++) {
-            if (vm.enableArr[i].OK === false) {             
+            if (vm.enableArr[i].OK === false) {
                 return;
             }
             else {
@@ -193,6 +198,7 @@ console.log('lgValidation');
             myService.thePersons = vm.persons;
           }, true);
 
+    // new new new
     $scope.$watch(function watch(scope) {
             return vm.dateBirthModel;
           },
