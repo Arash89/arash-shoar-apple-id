@@ -59,14 +59,14 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         alertClass: "",
         warningHide:true,
         warning: "The Last Name must be less than 50 characters",
-        OK: false
+        OK: true
     };
     
     vm.dateBirth = {
         placeholder: "1990-01-01",
         alertClass: "",
         warningHide:true,
-        warning: "Age must be 14 to 150 (2003 - 1867)",
+        warning: "Format YYYY-MM-DD between (2003 - 1867)",
         OK: false
     };
 
@@ -91,9 +91,10 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
         var i = 0;
 
 
+console.log('lgValidation');
 
 
-        if (elem.name === "confirmPass" ) {
+        if (elem.name === "confirmPass") {
 
             var passwordModel = angular.element("#frmPass").eq(0).val();
             var confPasswordModel = angular.element("#frmConf").get(0).value;
@@ -115,7 +116,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
 
         var isValid = elem.checkValidity();
 
-        if (elem.name === "confirmPass" && (vm.confPasswordModel !== vm.passwordModel) ) {
+        if (elem.name === "dateBirth" && vm.dateBirthModel === undefined) {
             isValid = false;
         }
 
@@ -142,14 +143,12 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
             }
             else {
                 if (i === vm.enableArr.length - 1) {
-                    console.log("Didi?");
                     vm.subDisabled = false;
                     newMemberData = {
                         name: vm.firstNameModel,
                         lastName: vm.lastNameModel,
                         defualtAvatar: "images/avatars/default.png",
                         email: vm.emailModel,
-                        //birth: vm.dateBirthModel.toLocaleDateString()     
                         birth: vm.dateBirthModel.getFullYear() + "-" +
                             vm.dateBirthModel.getMonth() + "-" +
                             vm.dateBirthModel.getDay()     
@@ -192,7 +191,22 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
           },
           function handle(newV, oldV) {
             myService.thePersons = vm.persons;
+          }, true);
+
+    $scope.$watch(function watch(scope) {
+            return vm.dateBirthModel;
+          },
+          function handle(newV, oldV) {
+
+            if (newV === oldV) {
+                return;
+            }
+
+            var x = {};
+            x.target = angular.element("#frmBirth").get(0);
+            vm.lgValidation(x);
           }, true);    
+          
 
     
 }])
@@ -264,6 +278,7 @@ angular.module('arashTcsApp',['ngRoute', 'ngAnimate'])
     this.thePersons = [];
 
 });
+
 
 
 })(window.angular);
