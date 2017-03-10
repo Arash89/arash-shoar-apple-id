@@ -18,7 +18,7 @@
             <span class="input-group-addon {{budCtr.firstName.alertClass}}" id="sizing-addon2">
               * <i class="fa fa-user" aria-hidden="true"></i>
             </span>
-            <input type="text" class="form-control" placeholder="First Name" aria-describedby="sizing-addon2" name="firstName" ng-model="budCtr.bufObj.firstName"   maxlength="50" pattern="[A-Z a-z]+" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" required>
+            <input type="text" class="form-control" placeholder="First Name" aria-describedby="sizing-addon2" name="firstName" ng-model="budCtr.bufObj.firstName"   maxlength="50" pattern="[A-Z a-z]+" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" required ng-keyup="budCtr.lgValidation($event, this);">
           </div>
 
 
@@ -28,7 +28,7 @@
             <span class="input-group-addon {{budCtr.lastName.alertClass}}" id="sizing-addon2">
               * <i class="fa fa-user-plus" aria-hidden="true"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Last Name" aria-describedby="sizing-addon2" name="lastName" ng-model="budCtr.bufObj.lastName"  maxlength="50" pattern="[A-Z a-z]+" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" required>
+            <input type="text" class="form-control" placeholder="Last Name" aria-describedby="sizing-addon2" name="lastName" ng-model="budCtr.bufObj.lastName"  maxlength="50" pattern="[A-Z a-z]+" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" required ng-keyup="budCtr.lgValidation($event, this);">
           </div>
 
 
@@ -38,7 +38,7 @@
             <span class="input-group-addon {{budCtr.email.alertClass}}" id="sizing-addon2">
               * <i class="fa fa-envelope" aria-hidden="true"></i>
             </span>
-            <input type="email" class="form-control" placeholder="Email Address" aria-describedby="sizing-addon2" name="email" ng-model="budCtr.bufObj.email" required maxlength="56" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;">
+            <input type="email" class="form-control" placeholder="Email Address" aria-describedby="sizing-addon2" name="email" ng-model="budCtr.bufObj.email" required maxlength="56" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" ng-keyup="budCtr.lgValidation($event, this);">
           </div>
 
 
@@ -48,7 +48,7 @@
             <span class="input-group-addon {{budCtr.dateBirth.alertClass}}" id="sizing-addon2">
               * <i class="fa fa-calendar" aria-hidden="true"></i>
             </span>
-            <input type="date" class="form-control" placeholder="Date of Birth" aria-describedby="sizing-addon2" name="dateBirth" ng-model="budCtr.bufObj.birthday" value="1990-01-01" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;"  min="1867-01-01"  max="2003-12-31">
+            <input type="date" class="form-control" placeholder="Date of Birth" aria-describedby="sizing-addon2" name="dateBirth" ng-model="budCtr.bufObj.birthday" value="1990-01-01" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;"  min="1867-01-01"  max="2003-12-31" ng-keyup="budCtr.lgValidation($event, this);">
           </div>
 
 
@@ -58,7 +58,7 @@
             <span class="input-group-addon {{budCtr.lastName.alertClass}}" id="sizing-addon2">
               * <i class="fa fa-book" aria-hidden="true"></i>
             </span>
-            <textarea  class="form-control" placeholder="Bio" aria-describedby="sizing-addon2" name="bio" ng-model="budCtr.bufObj.bio" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" minlength="1" ng-change="budCtr.lgValidation($event2);" ng-focus="$event2=$event" required></textarea>
+            <textarea  class="form-control" placeholder="Bio" aria-describedby="sizing-addon2" name="bio" ng-model="budCtr.bufObj.bio" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;" minlength="1" ng-change="budCtr.lgValidation($event2);" ng-focus="$event2=$event" required  ng-keyup="budCtr.lgValidation($event, this);"></textarea>
           </div>
 
 

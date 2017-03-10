@@ -291,16 +291,20 @@ angular.module('arashTcsApp')
 	        elemObjectScope.alertClass = "redLoginAlert";
 	        if(elem.name !== 'dateBirth') {
 	            elemObjectScope.warning = elem.validationMessage;
-	        }           
+	        }
+	        vm.addBtDisabled = true;
+	        elemObjectScope.OK = false;
+	        vm.enableArr.forEach(function(elem, inedex) {
+	        });             
 	    }
 	    else {
 	        elemObjectScope.warningHide = true;
 	        elemObjectScope.alertClass = "greenLoginAlert"; 
-	        elemObjectScope.OK = true;  
+	        elemObjectScope.OK = true;
 	    }
 
 	    for (i = 0; i < vm.enableArr.length; i++) {
-	        if (vm.enableArr[i].OK === false) {             
+	        if (vm.enableArr[i].OK === false) {
 	            return;
 	        }
 	        else {
