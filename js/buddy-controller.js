@@ -4,7 +4,7 @@
 angular.module('arashTcsApp')
 
 
-.controller('buddyController', ['$scope', '$http', '$location', 'myService', function($scope, $http, $location, myService){
+.controller('buddyController', ['$timeout','$scope', '$http', '$location', 'myService', function($timeout, $scope, $http, $location, myService){
 
 
 	vm = this;
@@ -139,7 +139,8 @@ angular.module('arashTcsApp')
 		vm.bufObj._id = "0000000000000000abcd" + vm.bufObj._id;
 		var objForPush = new objForPushCunst(vm.bufObj.firstName, vm.bufObj.lastName, vm.bufObj.email, vm.bufObj.lastSignIn, vm.bufObj.bio, vm.bufObj.status, vm.bufObj.birthday, vm.bufObj._id);
 		vm.persons.push(objForPush);
-
+		$timeout(vm.resetTheModel, 300);
+		
 	};
 
 	/*
@@ -152,23 +153,32 @@ angular.module('arashTcsApp')
 
 			if (vm.bufObj.firstName !== undefined) {
 					vm.bufObj.firstName = "";
-				}
-		
-				if (vm.bufObj.lastName !== undefined) {
-					vm.bufObj.lastName = "";
-				}
-		
-				if (vm.bufObj.email !== undefined) {
-					vm.bufObj.email = "";
-				}
+			}
+	
+			if (vm.bufObj.lastName !== undefined) {
+				vm.bufObj.lastName = "";
+			}
+	
+			if (vm.bufObj.email !== undefined) {
+				vm.bufObj.email = "";
+			}
 
-				if (vm.bufObj.birthday !== undefined) {
-					vm.bufObj.birthday = "";
-				}
-		
-				if (vm.bufObj.bio !== undefined) {
-					vm.bufObj.bio = "";
-				}
+			if (vm.bufObj.birthday !== undefined) {
+				vm.bufObj.birthday = "";
+			}
+	
+			if (vm.bufObj.bio !== undefined) {
+				vm.bufObj.bio = "";
+			}
+
+			vm.enableArr.forEach( function(element, index) {
+				element.alertClass = "";
+				element.warningHide = true;
+				element.OK = false;
+			});
+			vm.addBtDisabled = true;
+
+
 		}
 	};
 
@@ -270,6 +280,11 @@ angular.module('arashTcsApp')
 	    var elemObjectScope = vm[elem.name];
 	    var isValid = elem.checkValidity();
 	    var i = 0;
+
+
+		if(elem.name === 'dateBirth' && vm.bufObj.birthday === undefined) {
+			isValid = false;
+		}
 
 	    if (!isValid) {
 	        elemObjectScope.warningHide = false;
