@@ -248,7 +248,7 @@ angular.module('arashTcsApp')
 	    placeholder: "1990-01-01",
 	    alertClass: "",
 	    warningHide:true,
-	    warning: "Age must be 14 to 150 (2003 - 1867)",
+	    warning: "Format YYYY-MM-DD between (2003 - 1867)",
 	    OK: false
 	};
 
@@ -282,9 +282,23 @@ angular.module('arashTcsApp')
 	    var i = 0;
 
 
-		if(elem.name === 'dateBirth' && vm.bufObj.birthday === undefined) {
+		// if(elem.name === 'dateBirth' && vm.bufObj.birthday === undefined) {
+		// 	isValid = false;
+		// }
+
+		if(elem.name === 'dateBirth' && (vm.bufObj === undefined || vm.bufObj.birthday === undefined )) {
 			isValid = false;
 		}
+
+
+// 		if(elem.name === 'dateBirth') {
+
+// console.log('vm.bufObj', vm.bufObj);
+// console.log('vm.bufObj.birthday', vm.bufObj.birthday);
+// 			if(!vm.bufObj.birthday) {
+// 				isValid = false;
+// 			}
+// 		}
 
 	    if (!isValid) {
 	        elemObjectScope.warningHide = false;

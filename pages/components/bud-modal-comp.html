@@ -48,7 +48,7 @@
             <span class="input-group-addon {{budCtr.dateBirth.alertClass}}" id="sizing-addon2">
               * <i class="fa fa-calendar" aria-hidden="true"></i>
             </span>
-            <input type="date" class="form-control" placeholder="Date of Birth" aria-describedby="sizing-addon2" name="dateBirth" ng-model="budCtr.bufObj.birthday" value="1990-01-01" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;"  min="1867-01-01"  max="2003-12-31" ng-keyup="budCtr.lgValidation($event, this);">
+            <input type="date" class="form-control" placeholder="YYY-MM-DD Date of Birth" aria-describedby="sizing-addon2" name="dateBirth" ng-model="budCtr.bufObj.birthday" value="1990-01-01" ng-blur="budCtr.lgValidation($event, this);" ng-keypress="($event.which === 13)?budCtr.lgValidation($event, this):0;"  min="1867-01-01"  max="2003-12-31" ng-keyup="budCtr.lgValidation($event, this);" required>
           </div>
 
 
